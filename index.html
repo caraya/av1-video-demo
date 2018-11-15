@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AV1 Video in video element</title>
+  <script src="js/prism.js"></script>
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i">
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-flow: column;
+      width: 50%;
+      margin: 1em auto;
+    }
+
+    video {
+      height: auto;
+      width: 100%;
+      margin: 1em auto;
+    }
+
+    p {
+      text-align: start;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AV1 Video in video element</h1>
+
+    <p>You can finally play <a href="https://aomedia.org/av1-features/get-started/">AV1</a>video in the browsers (currently Chrome, Opera and Firefox) using the <code>video</code> element. The video above was encoded using <a href="https://www.ffworks.net/">ffWorks, an <a href="https://www.ffmpeg.org/">FFMPEG</a> front-end</a>.</p>
+
+    <h2>Using the <code>video</code> element</h2>
+
+    <video  controls
+            playsinline
+            class="video"
+            poster="images/poster.jpg">
+      <source src="footloose.mp4" type='video/mp4; codecs="avc1.4d401f"'>
+    </video>
+
+    <p>Using AV1 is not too different than using VP9, H264 or H265. The code looks like this:</p>
+
+    <pre class="language-html"><code class="language-html">
+    &lt;video  controls
+        playsinline
+        class="video"
+        poster="images/poster.jpg"
+        height="480px"
+        width="640px">
+      &lt;source src="footloose.mp4" type='video/mp4; codecs="avc1.4d401f"'>
+    &lt;/video>
+    </code></pre>
+
+    <p>Normally I would not worry about adding the <code>codecs</code> portion of the <code>type</code> attribute. With AV1 this is essential since you can play more than one video format in an MP4 container and <em><strong>we don't want to download a video if the browser will not play it</strong></em>.</p>
+
+    <h2>Youtube</h2>
+
+    <p>Youtube allows you to upload AV1 video as another you would any other format supported in the platform. Once you upload the vide you can copy the iframe embebd as you normally would. The code for this example looks like this:</p>
+
+    <pre class="language-html"><code class="language-html">
+    &lt;iframe width="560" height="315"
+    src="https://www.youtube.com/embed/ZYidbf5Jtfc?rel=0" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope;
+    picture-in-picture" allowfullscreen>&lt;/iframe>
+    </code></pre>
+
+    <p>And it appears like this:</p>
+
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/ZYidbf5Jtfc?rel=0"
+    frameborder="0"
+    allow="accelerometer; autoplay; picture-in-picture"
+    allowfullscreen></iframe>
+
+    <h2>Note about support:</h2>
+
+    <p>Currently you can play AV1 video in Chrome (desktop), Firefox (desktop), and Edge, with the following caveats:</p>
+
+    <ul>
+      <li>As of this writing, AV1 supports only works in Firefox Nightly</li>
+        <ul>
+          <li>Must enable <code>media.av1.enabled</code> in <code>about:config</code></li>
+        </ul>
+      <li>Works in Chrome 70 and newer</li>
+        <ul>
+          <li>Must enable the <code>#enable-av1-decoder</code> flag in <code>chrome://flags</code></li>
+        </ul>
+      <li>Supported in Edge but not IE</li>
+        <ul>
+          <li>Must install the AV1 Video Extension (Beta) from the Microsoft Store</li>
+        </ul>
+    </ul>
+  </div>
+</body>
+</html>
