@@ -62,29 +62,31 @@
 
     <h2>Youtube</h2>
 
-    <p>Youtube allows you to upload AV1 video as another you would any other format supported in the platform. Once you upload the vide you can copy the iframe embebd as you normally would. The code for this example looks like this:</p>
+    <p>Youtube allows content creators to upload AV1 videos (in MP4 containers) without erroring out but, sadly, it seems to convert them to H264 as part of the upload process. I've asked Youtube Developers on Twitter if users are allowed to upload AV1 video to the platform and I'm still waiting to hear from them.</p>
 
-    <pre class="language-html"><code class="language-html">
-    &lt;iframe width="560" height="315"
-    src="https://www.youtube.com/embed/ZYidbf5Jtfc?rel=0" frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope;
-    picture-in-picture" allowfullscreen>&lt;/iframe>
-    </code></pre>
+    <p>So, instead of using the same video, I've chosen to work with a video from Youtube's <a href="https://www.youtube.com/playlist?list=PLyqf6gJt7KuHBmeVzZteZUlNUQAVLwrZS">AV1 Beta Launch Playlist</a> to see how well it works. </p>
 
-    <p>And it appears like this:</p>
 
-    <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/ZYidbf5Jtfc?rel=0"
-    frameborder="0"
-    allow="accelerometer; autoplay; picture-in-picture"
-    allowfullscreen></iframe>
+      <pre class="language-html"><code class="language-html">
+      &lt;iframe width="560" height="315"
+      src="https://www.youtube.com/embed/Fmdb-KmlzD8"
+      frameborder="0"
+      allow="accelerometer; autoplay;
+      encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>&lt;/iframe>
+      </code></pre>
 
-    <h2>Note about support:</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Fmdb-KmlzD8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <p>You can use <a href="https://www.youtube.com/testtube">TestTube</a> to tell Youtube how much you want to use AV1 when watching YouTube content.</p>
+
+
+    <h2>Notes about support:</h2>
 
     <p>Currently you can play AV1 video in Chrome (desktop), Firefox (desktop), and Edge, with the following caveats:</p>
 
     <ul>
-      <li>As of this writing, AV1 supports only works in Firefox Nightly</li>
+      <li>As of this writing, AV1 supports only works in Firefox 63 and newer</li>
         <ul>
           <li>Must enable <code>media.av1.enabled</code> in <code>about:config</code></li>
         </ul>
